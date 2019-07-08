@@ -4,7 +4,7 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
 
 class AboutVariableScope < Neo::Koan
   def bark
-    noise = 'RUFF'
+    noise = 'RUFF' # rubocop:disable Lint/UselessAssignment
   end
 
   def test_noise_is_not_available_in_the_current_scope
@@ -13,10 +13,10 @@ class AboutVariableScope < Neo::Koan
     end
   end
 
+  # rubocop:disable Lint/UselessAssignment
   def test_we_can_get_noise_by_calling_method
     assert_equal __, bark
   end
-  # rubocop:disable Lint/UselessAssignment
   inaccessible = 'Outside our universe'
   def test_defs_cannot_access_variables_outside_scope
     # defined? does not return true or false
@@ -39,17 +39,17 @@ class AboutVariableScope < Neo::Koan
       x = 0
     end
     assert_equal __, defined? x
+    # rubocop:enable Lint/UselessAssignment
   end
 
-  # rubocop:enable Lint/UselessAssignment
   # ------------------------------------------------------
 
   class Mouse
-    # rubocop:disable Style/GlobalVars,Style/ClassVars
+    # rubocop:disable Style/GlobalVars, Style/ClassVars
     @@total = 0
     # Class variables are prefixed with two '@' characters.
 
-    def initialize(n)
+    def initialize(n) # rubocop:disable Naming/UncommunicativeMethodParamName
       @name = n
       # Instance variables are prefixed with one '@' character.
       @@total += 1
@@ -104,6 +104,7 @@ class AboutVariableScope < Neo::Koan
 
     assert_equal __, $anywhere
   end
+  # rubocop:enable Style/GlobalVars, Style/ClassVars
 end
 
 # THINK ABOUT IT:

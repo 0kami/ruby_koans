@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # Triangle Project Code.
 
 # Triangle analyzes the lengths of the sides of a triangle
@@ -14,7 +12,7 @@
 #   about_triangle_project.rb
 # and
 #   about_triangle_project_2.rb
-#
+# rubocop:disable Naming/UncommunicativeMethodParamName
 def triangle(a, b, c)
   a, b, c = [a, b, c].sort
   raise TriangleError if (a <= 0) || (a + b <= c)
@@ -24,6 +22,7 @@ def triangle(a, b, c)
   :scalene
 end
 
+# rubocop:enable Naming/UncommunicativeMethodParamName
 # Error class used in part 2.  No need to change this code.
 class TriangleError < StandardError
 end

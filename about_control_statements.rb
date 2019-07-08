@@ -5,7 +5,7 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
 # About control statements
 class AboutControlStatements < Neo::Koan # rubocop:disable Metrics/ClassLength
   def test_if_then_else_statements
-    if true  # rubocop:disable Lint/LiteralAsCondition
+    if true  # rubocop:disable Lint/LiteralAsCondition, Style/ConditionalAssignment
       result = :true_value
     else
       result = :false_value
@@ -33,7 +33,6 @@ class AboutControlStatements < Neo::Koan # rubocop:disable Metrics/ClassLength
     # just if statements.
   end
 
-  # :reek:RepeatedConditional
   def if_statements_return_values
     value = if false # rubocop:disable Lint/LiteralAsCondition
               :true_value
@@ -50,6 +49,7 @@ class AboutControlStatements < Neo::Koan # rubocop:disable Metrics/ClassLength
     assert_equal nil, value
   end
 
+  # rubocop:disable Metrics/LineLength
   def test_condition_operators
     assert_equal :true_value, (true ? :true_value : :false_value) # rubocop:disable Lint/LiteralAsCondition, Metrics/LineLength
     assert_equal :false_value, (false ? :true_value : :false_value) # rubocop:disable Lint/LiteralAsCondition
@@ -70,6 +70,7 @@ class AboutControlStatements < Neo::Koan # rubocop:disable Metrics/ClassLength
     assert_equal :false_value, result
   end
 
+  # rubocop:enable Metrics/LineLength
   def test_unless_statement_evaluate_true
     result = :default_value
     unless true # rubocop:disable Lint/LiteralAsCondition, Style/IfUnlessModifier

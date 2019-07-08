@@ -1,6 +1,5 @@
-# rubocop:disable Style/GlobalVars, Metrics/LineLength
 def version_ints(version)
-  version.split('.').map { |v| v.to_i }
+  version.split('.').map { |v| v.to_i } # rubocop:disable Style/SymbolProc
 end
 
 def at_least_ruby_version(version)
@@ -25,7 +24,4 @@ describe 'at_least_ruby_version' do
 
   Then { !at_least_ruby_version('1.9') }
   Then { !at_least_ruby_version('1.9.9.9.9') }
-
 end
-
-# rubocop:enable Style/GlobalVars, Metrics/LineLength

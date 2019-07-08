@@ -99,8 +99,8 @@ SQL
     original_string = 'Hello, '
     hi = original_string
     there = 'World'
-    hi += there
-    assert_equal "Hello, ", original_string
+    hi += there # rubocop:disable Lint/UselessAssignment
+    assert_equal 'Hello, ', original_string
 
     # THINK ABOUT IT:
     #

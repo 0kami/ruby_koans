@@ -1,3 +1,4 @@
+# rubocop:disable all
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
@@ -530,3 +531,4 @@ END {
   Neo::Koan.command_line(ARGV)
   Neo::ThePath.new.walk
 }
+# rubocop:enable all

@@ -31,7 +31,7 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
 #
 # Your goal is to write the score method.
 
-def score(dice)
+def score(dice) # rubocop:disable Metrics/AbcSize
   done = 1000 * (dice.count(1) / 3)
   done += 100 * (dice.count(1) % 3)
   done += 50 * (dice.count(5) % 3)
