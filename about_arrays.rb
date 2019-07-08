@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require File.expand_path(File.dirname(__FILE__) + '/neo')
 # about arrays
 class AboutArrays < Neo::Koan

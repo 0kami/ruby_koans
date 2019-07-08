@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require File.expand_path(File.dirname(__FILE__) + '/neo')
 # Describes symbols
 class AboutSymbols < Neo::Koan
@@ -35,7 +37,7 @@ class AboutSymbols < Neo::Koan
   # against the string value rather than against symbols?
 
   in_ruby_version('mri') do
-    RUBY_CONSTANT = 'What is the sound of one hand clapping?'.freeze
+    RUBY_CONSTANT = 'What is the sound of one hand clapping?'
     def test_constants_become_symbols
       all_symbols_as_strings = Symbol.all_symbols.map(&:to_s)
 
@@ -73,7 +75,7 @@ class AboutSymbols < Neo::Koan
     assert_equal false, symbol.is_a?(String)
     assert_equal false, symbol.eql?('ruby')
   end
-  
+
   def test_symbols_do_not_have_string_methods
     symbol = :not_a_string
     assert_equal false, symbol.respond_to?(:each_char)

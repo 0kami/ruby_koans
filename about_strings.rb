@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require File.expand_path(File.dirname(__FILE__) + '/neo')
 # Class about strings
 class AboutStrings < Neo::Koan # rubocop:disable Metrics/ClassLength
@@ -88,7 +90,7 @@ SQL
   def test_the_shovel_operator_will_also_append_content_to_a_string
     hi = 'Hello, '
     there = 'World'
-    hi << there
+    hi += there
     assert_equal 'Hello, World', hi
     assert_equal 'World', there
   end
@@ -97,8 +99,8 @@ SQL
     original_string = 'Hello, '
     hi = original_string
     there = 'World'
-    hi << there
-    assert_equal 'Hello, World', original_string
+    hi += there
+    assert_equal "Hello, ", original_string
 
     # THINK ABOUT IT:
     #
@@ -196,6 +198,6 @@ SQL
     second = 'a string'
 
     assert_equal true, first           == second
-    assert_equal false, first.object_id == second.object_id
+    assert_equal true, first.object_id == second.object_id
   end
 end
